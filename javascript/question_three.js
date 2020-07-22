@@ -21,5 +21,5 @@ const findDominator = (arrayA) => {
     return isDominant ? dominatorCollection : -1;
   }
   
-// Test 1
+// Test 3
 // console.log(findDominator([3, 4, 3, 3, -1, 3]))

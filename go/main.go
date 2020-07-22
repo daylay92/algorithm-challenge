@@ -52,34 +52,36 @@ func isProperlyNested(s string) (result int) {
 	leftBraces := "{[("
 	rightBraces := ")]}"
 	result = 1
-	sArr := strings.Fields(s)
+	sArr := strings.Split(s, "")
 	braceStore := make([]string, 0)
 	for i, v := range sArr {
 		if strings.Contains(rightBraces, v) && i == 0 {
-			result = 0;
-			break;
+			result = 0
+			break
 		}
 		if strings.Contains(leftBraces, v) {
 			braceStore = append(braceStore, v);
-			continue;
+			continue
 		}
+
 		rightEquivalent :=  braceStore[len(braceStore) - 1]
 		braceStore = braceStore[:len(braceStore) - 1]
 		if (sArr[i] == string(')') && rightEquivalent != string('(')) {
-			result = 0;
-			continue;
+			result = 0
+			continue
 		};
 		if (sArr[i] == string(']') && rightEquivalent != string('[')) {
-			result = 0;
-			continue;
+			result = 0
+			continue
 		}
 		if (sArr[i] == string('}') && rightEquivalent != string('{')) {
-			result = 0;
-			continue;
+			result = 0
+			continue
 		}
 	}
 	return
 	}
+
 // CHALLENGE 3	
 	func getDominator(arr []int) (result interface {}) {
 		mapArr := make(map[int][]int)
@@ -109,5 +111,8 @@ func main(){
 	// fmt.Println(isTriangular([]int{10, 50, 5, 1}))
 
 	// Test 2
-	 fmt.Println(isProperlyNested("{[()()]}"))
+	//  fmt.Println(isProperlyNested("{[()()]}"))
+
+	// Test 3
+// fmt.Println(findDominator([]int{3, 4, 3, 3, -1, 3}))
 }
